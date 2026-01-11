@@ -18,6 +18,8 @@ import {
 
 // --- Helper Components ---
 
+const CHECKOUT_URL = "https://pay.lowify.com.br/checkout.php?product_id=5ho0Or";
+
 const SectionTitle: React.FC<{ children: React.ReactNode; subtitle?: string; light?: boolean }> = ({ children, subtitle, light }) => (
   <div className="text-center mb-12 px-4">
     <h2 className={`text-3xl md:text-5xl font-bold mb-4 ${light ? 'text-white' : 'gold-gradient'}`}>
@@ -27,11 +29,14 @@ const SectionTitle: React.FC<{ children: React.ReactNode; subtitle?: string; lig
   </div>
 );
 
-const CTAButton: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className }) => (
-  <button className={`gold-bg text-slate-950 font-bold py-4 px-8 rounded-full text-xl cta-glow transform hover:scale-105 transition duration-300 flex items-center justify-center gap-2 group ${className}`}>
+const CTAButton: React.FC<{ children: React.ReactNode; className?: string; href?: string }> = ({ children, className, href = CHECKOUT_URL }) => (
+  <a 
+    href={href} 
+    className={`gold-bg text-slate-950 font-bold py-4 px-8 rounded-full text-xl cta-glow transform hover:scale-105 transition duration-300 flex items-center justify-center gap-2 group ${className}`}
+  >
     {children}
     <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-  </button>
+  </a>
 );
 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
@@ -58,7 +63,7 @@ const App: React.FC = () => {
       {/* Sticky Header */}
       <header className="fixed top-0 left-0 w-full z-50 glass-card px-4 py-3 flex justify-between items-center md:hidden">
         <span className="gold-gradient font-bold text-sm leading-tight uppercase">21 Dias Propósito</span>
-        <button className="gold-bg text-slate-950 px-4 py-1.5 rounded-full text-xs font-bold shadow-lg">QUERO ME INSCREVER</button>
+        <a href={CHECKOUT_URL} className="gold-bg text-slate-950 px-4 py-1.5 rounded-full text-xs font-bold shadow-lg">QUERO ME INSCREVER</a>
       </header>
 
       {/* Hero Section */}
