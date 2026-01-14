@@ -6,18 +6,21 @@ import {
   ChevronDown, 
   ShieldCheck, 
   ArrowRight, 
-  Cross, 
   Lock, 
   TrendingUp, 
   HandHelping,
   Star,
-  Zap,
   BookOpen,
-  CalendarDays,
   UserCheck,
   MessageCircle,
   Heart,
-  Crown
+  Crown,
+  Target,
+  Coins,
+  Smile,
+  Users,
+  Quote,
+  AlertCircle
 } from 'lucide-react';
 
 // --- Helper Components ---
@@ -30,7 +33,7 @@ const SectionTitle: React.FC<{ children: React.ReactNode; subtitle?: string; lig
     <h2 className={`text-3xl md:text-5xl font-bold mb-4 ${light ? 'text-white' : 'gold-gradient'}`}>
       {children}
     </h2>
-    {subtitle && <p className="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">{subtitle}</p>}
+    {subtitle && <p className="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-medium">{subtitle}</p>}
   </div>
 );
 
@@ -42,16 +45,16 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-6 flex justify-between items-center text-left hover:text-amber-400 transition"
       >
-        <span className="text-lg md:text-xl font-bold">{question}</span>
-        <ChevronDown className={`w-5 h-5 transform transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <span className="text-lg md:text-xl font-bold pr-4">{question}</span>
+        <ChevronDown className={`w-6 h-6 shrink-0 transform transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
-      {isOpen && <p className="pb-6 text-slate-300 text-base md:text-lg leading-relaxed animate-fade-in">{answer}</p>}
+      {isOpen && <p className="pb-6 text-slate-300 text-lg md:text-xl leading-relaxed animate-fade-in font-medium">{answer}</p>}
     </div>
   );
 };
 
 const ValueBadge: React.FC = () => (
-  <div className="inline-flex items-center gap-2 bg-red-600/20 text-red-400 px-2 py-0.5 rounded text-xs md:text-sm font-bold border border-red-600/30 mb-2">
+  <div className="inline-flex items-center gap-2 bg-red-600/20 text-red-400 px-3 py-1 rounded text-sm md:text-base font-bold border border-red-600/30 mb-2">
     <span className="line-through">R$ 49,90</span>
     <span className="text-white">HOJE: GRÁTIS</span>
   </div>
@@ -74,364 +77,441 @@ const App: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/90 to-slate-950 pointer-events-none"></div>
         
         <div className="container mx-auto max-w-6xl flex flex-col items-center text-center relative z-10">
-          <div className="inline-block bg-slate-800/80 border border-amber-500/30 text-amber-400 px-4 py-1 rounded-full text-sm font-bold mb-6 animate-pulse uppercase tracking-wide">
+          <div className="inline-block bg-slate-800/80 border border-amber-500/30 text-amber-400 px-5 py-2 rounded-full text-base font-bold mb-8 animate-pulse uppercase tracking-wide">
             🔥 PARA CRISTÃOS QUE BUSCAM PROVISÃO
           </div>
-          <h1 className="text-4xl md:text-7xl font-bold leading-tight mb-8 max-w-4xl">
+          <h1 className="text-4xl md:text-7xl font-bold leading-tight mb-8 max-w-5xl">
             Você ora, jejua, é fiel… mas o dinheiro continua <span className="gold-gradient">acabando antes do fim do mês?</span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-200 mb-10 max-w-3xl leading-relaxed font-medium">
-            Descubra como viver 21 dias de propósito com Deus para romper o ciclo de escassez e destravar a provisão que já foi prometida.
+          <p className="text-xl md:text-2xl text-slate-200 mb-10 max-w-4xl leading-relaxed font-medium">
+            Descubra como viver 21 dias de propósito com Deus para romper o ciclo de escassez, parar de viver no aperto e destravar a provisão que já foi prometida — sem culpa por querer prosperar.
           </p>
           
-          <a 
-            href="#checkout" 
-            className="gold-bg text-slate-950 font-black py-4 px-10 rounded-full text-xl md:text-2xl cta-glow transform hover:scale-105 transition duration-300 flex items-center justify-center gap-2 group mb-16"
-          >
-            SIM! QUERO DESTRAVAR MINHA VIDA
-            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-          </a>
+          <div className="flex flex-col items-center gap-4 mb-16">
+            <a 
+              href="#checkout" 
+              className="gold-bg text-slate-950 font-black py-5 px-10 rounded-full text-xl md:text-3xl cta-glow transform hover:scale-105 transition duration-300 flex items-center justify-center gap-3 group"
+            >
+              SIM! QUERO DESTRAVAR MINHA VIDA
+              <ArrowRight className="w-8 h-8 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <p className="text-amber-500 font-bold flex items-center gap-2">
+              <AlertCircle className="w-5 h-5" /> Um guia para quem está cansado de viver pela fé… mas no cheque especial.
+            </p>
+          </div>
 
           <div className="relative mt-8 w-full max-w-4xl mx-auto flex justify-center">
             <div className="absolute -inset-10 bg-amber-500/10 blur-[100px] rounded-full"></div>
-            <div className="relative glass-card rounded-[2rem] p-2 md:p-6 border border-amber-500/30 shadow-[0_0_50px_rgba(217,119,6,0.2)]">
+            <div className="relative glass-card rounded-[2.5rem] p-3 md:p-8 border border-amber-500/30 shadow-[0_0_50px_rgba(217,119,6,0.2)]">
               <img 
                 src="https://i.postimg.cc/7L6NjDcr/mockup-1.png" 
                 alt="21 Dias de Propósito com Deus - Mockup Principal" 
-                className="w-full h-auto rounded-[1.5rem] max-w-[800px] block"
+                className="w-full h-auto rounded-[1.5rem] max-w-[850px] block"
               />
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/95 backdrop-blur-xl border border-amber-500/20 p-4 rounded-xl hidden md:flex items-center gap-8 shadow-2xl min-w-[500px]">
-                <div className="flex items-center gap-4">
-                  <BookOpen className="text-amber-500 w-8 h-8" />
-                  <div className="text-left">
-                    <p className="text-white font-black text-lg leading-tight">Guia Digital Completo</p>
-                    <p className="text-slate-400 text-xs font-bold uppercase tracking-widest">Acesso Vitalício</p>
-                  </div>
-                </div>
-                <div className="h-10 w-px bg-slate-700"></div>
-                <div className="flex items-center gap-3">
-                  <div className="flex -space-x-2">
-                    {[1,2,3].map(i => (
-                      <div key={i} className="w-8 h-8 rounded-full border-2 border-slate-900 overflow-hidden">
-                        <img src={`https://i.pravatar.cc/100?img=${i+20}`} alt="User" />
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-amber-400 text-base font-black">+5.420 inscritos</p>
-                </div>
-              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Agitator Section */}
+      <section className="py-24 px-4 bg-slate-950/50">
+        <div className="container mx-auto max-w-4xl text-center">
+          <div className="space-y-8 text-xl md:text-2xl text-slate-200 leading-relaxed font-medium">
+            <p>Você ama a Deus. Você é fiel na igreja. Você ouve sobre prosperidade, provisão, colheita…</p>
+            <p className="text-white font-black text-2xl md:text-3xl border-l-4 border-amber-500 pl-6 text-left py-4 bg-amber-500/5">
+              Mas quando abre o aplicativo do banco, o saldo não confirma a Palavra.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Video de Depoimento - ATUALIZADO */}
+      <section className="py-24 px-4 bg-slate-900/30">
+        <div className="container mx-auto max-w-2xl text-center">
+          <SectionTitle subtitle="Veja o impacto deste propósito na vida de quem já aceitou o desafio">Veja o que Deus está fazendo</SectionTitle>
+          <div className="glass-card p-2 md:p-4 rounded-[2rem] border-amber-500/30 shadow-[0_0_50px_rgba(217,119,6,0.15)] overflow-hidden">
+            <lite-video-player 
+              video-id="766fe085-e515-4adf-b9b7-7b6a4217b618" 
+              base-url="https://app.litevideo.net" 
+              aspect-ratio="square"
+              params="aspectRatio=square&coverColor=%23000f5c&progressSpeed=normal&progressBarHeight=8&showCover=true&coverStyle=gradient&playIconStyle=circle&playIconSize=large&showTitle=true&showControls=false&showProgressBar=true&iconColor=%23ffffff&iconBackgroundColor=%23ff0000&iconBackgroundOpacity=100&progressBarColor=%23ff0000&controlsStyle=default&controlsPosition=bottom&controlsColor=%23ffffff&controlsBackground=gradient&hoverEffect=fade&autoPlay=true&loop=false&liveSimulatorEnabled=false&liveSimulatorViewersMin=10&liveSimulatorViewersMax=50&liveSimulatorGrowthRate=moderate&domainLockEnabled=false&domainLockDomains=&showComments=false">
+            </lite-video-player>
           </div>
         </div>
       </section>
 
       {/* Pain Points Section */}
-      <section className="bg-slate-900/50 py-24 px-4">
-        <div className="container mx-auto max-w-4xl">
+      <section className="py-24 px-4">
+        <div className="container mx-auto max-w-5xl">
           <SectionTitle subtitle="A realidade de muitos cristãos hoje">Você sente que algo está travado?</SectionTitle>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div className="glass-card p-6 rounded-2xl flex gap-5 border-l-4 border-l-red-500/50 hover:bg-slate-800/40 transition">
-              <XCircle className="w-12 h-12 text-red-500 shrink-0" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+            <div className="glass-card p-8 rounded-[2rem] flex gap-6 border-l-4 border-l-red-500/50 hover:bg-slate-800/40 transition">
+              <XCircle className="w-14 h-14 text-red-500 shrink-0" />
               <div>
-                <h3 className="text-xl font-black mb-2 text-white">Ciclo de Escassez</h3>
-                <p className="text-slate-300 text-base md:text-lg leading-relaxed">O dinheiro acaba no dia 15 e o cartão está sempre estourado.</p>
+                <h3 className="text-2xl font-black mb-3 text-white">Ciclo de Escassez</h3>
+                <p className="text-slate-200 text-lg md:text-xl leading-relaxed font-medium">O dinheiro acaba no dia 15 e o cartão está sempre estourado.</p>
               </div>
             </div>
-            <div className="glass-card p-6 rounded-2xl flex gap-5 border-l-4 border-l-red-500/50 hover:bg-slate-800/40 transition">
-              <Lock className="w-12 h-12 text-red-500 shrink-0" />
+            <div className="glass-card p-8 rounded-[2rem] flex gap-6 border-l-4 border-l-red-500/50 hover:bg-slate-800/40 transition">
+              <Lock className="w-14 h-14 text-red-500 shrink-0" />
               <div>
-                <h3 className="text-xl font-black mb-2 text-white">Culpa Espiritual</h3>
-                <p className="text-slate-300 text-base md:text-lg leading-relaxed">Você se sente egoísta por querer uma vida melhor ou prosperar.</p>
+                <h3 className="text-2xl font-black mb-3 text-white">Culpa Espiritual</h3>
+                <p className="text-slate-200 text-lg md:text-xl leading-relaxed font-medium">Você se sente egoísta por querer uma vida melhor ou prosperar.</p>
               </div>
             </div>
-            <div className="glass-card p-6 rounded-2xl flex gap-5 border-l-4 border-l-red-500/50 hover:bg-slate-800/40 transition">
-              <TrendingUp className="w-12 h-12 text-red-500 shrink-0 rotate-180" />
+            <div className="glass-card p-8 rounded-[2rem] flex gap-6 border-l-4 border-l-red-500/50 hover:bg-slate-800/40 transition">
+              <TrendingUp className="w-14 h-14 text-red-500 shrink-0 rotate-180" />
               <div>
-                <h3 className="text-xl font-black mb-2 text-white">Vergonha e Medo</h3>
-                <p className="text-slate-300 text-base md:text-lg leading-relaxed">O medo de que pensem: "Será que tem algo errado com a fé dele?"</p>
+                <h3 className="text-2xl font-black mb-3 text-white">Vergonha e Medo</h3>
+                <p className="text-slate-200 text-lg md:text-xl leading-relaxed font-medium">O medo de que pensem: "Será que tem algo errado com a fé dele?"</p>
               </div>
             </div>
-            <div className="glass-card p-6 rounded-2xl flex gap-5 border-l-4 border-l-red-500/50 hover:bg-slate-800/40 transition">
-              <HandHelping className="w-12 h-12 text-red-500 shrink-0" />
+            <div className="glass-card p-8 rounded-[2rem] flex gap-6 border-l-4 border-l-red-500/50 hover:bg-slate-800/40 transition">
+              <HandHelping className="w-14 h-14 text-red-500 shrink-0" />
               <div>
-                <h3 className="text-xl font-black mb-2 text-white">Oração Desesperada</h3>
-                <p className="text-slate-300 text-base md:text-lg leading-relaxed">Sua conversa com Deus virou apenas um pedido de socorro financeiro.</p>
+                <h3 className="text-2xl font-black mb-3 text-white">Oração Desesperada</h3>
+                <p className="text-slate-200 text-lg md:text-xl leading-relaxed font-medium">Sua conversa com Deus virou apenas um pedido de socorro financeiro.</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-amber-500/10 border-l-4 border-amber-500 p-8 rounded-r-2xl italic text-xl md:text-2xl text-slate-200 leading-relaxed shadow-xl font-medium text-center">
-            "Não é falta de fé. É cansaço emocional e espiritual. Enquanto você vê quem não serve a Deus prosperando, você se pergunta: 'Senhor, o que estou fazendo de errado?'"
-          </div>
-        </div>
-      </section>
-
-      {/* Video Section */}
-      <section className="py-24 px-4 bg-slate-900/30 overflow-hidden">
-        <div className="container mx-auto max-w-5xl">
-          <SectionTitle subtitle="Milhares de vidas já foram tocadas e transformadas através deste propósito">
-            Vidas Transformadas
-          </SectionTitle>
-          <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="md:w-1/2 space-y-6">
-              <div className="glass-card p-6 rounded-2xl border-amber-500/10">
-                <div className="flex gap-1 text-amber-500 mb-4">
-                  {[1,2,3,4,5].map(i => <Star key={i} className="w-5 h-5 fill-current" />)}
-                </div>
-                <p className="text-lg md:text-xl text-slate-200 italic mb-4 leading-relaxed font-medium">
-                  "Eu não acreditava que em apenas 21 dias minha visão sobre dinheiro mudaria tanto. Hoje durmo em paz, sabendo que Deus é meu provedor."
-                </p>
-                <p className="font-black text-amber-400 text-base uppercase tracking-wider">— Maria S., Aluna do Propósito</p>
-              </div>
-              <div className="glass-card p-6 rounded-2xl border-amber-500/10">
-                <div className="flex gap-1 text-amber-500 mb-4">
-                  {[1,2,3,4,5].map(i => <Star key={i} className="w-5 h-5 fill-current" />)}
-                </div>
-                <p className="text-lg md:text-xl text-slate-200 italic mb-4 leading-relaxed font-medium">
-                  "O Pastor Carlos traz uma palavra que confronta e liberta ao mesmo tempo. Minha família toda foi abençoada."
-                </p>
-                <p className="font-black text-amber-400 text-base uppercase tracking-wider">— João P., Empresário</p>
-              </div>
-            </div>
-            <div className="md:w-1/2 w-full flex justify-center">
-              <div className="relative w-full max-w-[420px] glass-card p-3 rounded-[2rem] border-amber-500/30 shadow-[0_0_50px_rgba(217,119,6,0.1)]">
-                {/* @ts-ignore - LiteVideo Custom Element */}
-                <lite-video-player 
-                  video-id="766fe085-e515-4adf-b9b7-7b6a4217b618" 
-                  aspect-ratio="square" 
-                  base-url="https://app.litevideo.net" 
-                  params="aspectRatio=square&coverColor=%23000f5c&progressSpeed=normal&progressBarHeight=8&showCover=true&coverStyle=gradient&playIconStyle=circle&playIconSize=large&showTitle=false&showControls=false&showProgressBar=true&iconColor=%23ffffff&iconBackgroundColor=%23ff0000&iconBackgroundOpacity=100&progressBarColor=%23ff0000&controlsStyle=default&controlsPosition=bottom&controlsColor=%23ffffff&controlsBackground=gradient&hoverEffect=fade&autoPlay=true&loop=false&liveSimulatorEnabled=false&liveSimulatorViewersMin=10&liveSimulatorViewersMax=50&liveSimulatorGrowthRate=moderate&domainLockEnabled=false&domainLockDomains=&showComments=false"
-                ></lite-video-player>
-              </div>
-            </div>
+          <div className="relative mt-20 max-w-4xl mx-auto">
+            <Quote className="absolute -top-10 -left-6 w-16 h-16 text-amber-500/20" />
+            <p className="text-xl md:text-2xl text-slate-300 italic text-center leading-relaxed font-medium px-8 border-t border-b border-slate-800 py-10">
+              "Não é falta de fé. É cansaço emocional e espiritual. Enquanto você vê quem não serve a Deus prosperando, você se pergunta: <span className="text-white font-bold">'Senhor, o que estou fazendo de errado?'</span>"
+            </p>
           </div>
         </div>
       </section>
 
-      {/* VITRINE VISUAL DE BÔNUS E GUIAS */}
+      {/* The Solution Section - TITULO ATUALIZADO */}
+      <section className="py-24 px-4 bg-gradient-to-b from-transparent to-slate-950">
+        <div className="container mx-auto max-w-6xl">
+          <SectionTitle subtitle="E se o desbloqueio não começasse no banco… mas no propósito?">A Solução para sua Vida Financeira!</SectionTitle>
+          <div className="flex flex-col md:flex-row gap-16 items-center">
+            <div className="md:w-1/2 relative">
+               <div className="absolute -inset-4 bg-amber-500/20 blur-3xl rounded-full opacity-50"></div>
+               <div className="relative glass-card p-4 rounded-[2.5rem] border-amber-500/30 shadow-2xl">
+                 <img 
+                  src="https://i.postimg.cc/XYnLc9kZ/mockup-2.png" 
+                  alt="Conteúdo Interno do Guia" 
+                  className="rounded-2xl w-full h-auto object-contain"
+                />
+               </div>
+            </div>
+            <div className="md:w-1/2">
+              <p className="text-xl md:text-2xl text-slate-200 mb-10 leading-relaxed font-medium">
+                O 21 Dias de Propósito com Deus para Desbloquear sua Vida Financeira foi criado para cristãos que querem sair da escassez sem barganhar com Deus.
+              </p>
+              <ul className="space-y-6 mb-12">
+                {[
+                  "Direcionamento espiritual diário",
+                  "Reflexão prática e realinhamento de atitudes",
+                  "Quebra de crenças de escassez",
+                  "Organização emocional e financeira",
+                  "Linguagem bíblica aplicável à vida real"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-4 text-slate-100 text-lg md:text-xl font-bold">
+                    <CheckCircle2 className="w-7 h-7 text-amber-500 shrink-0 mt-1" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a 
+                href="#checkout" 
+                className="gold-bg text-slate-950 font-black py-5 px-10 rounded-full text-xl md:text-2xl cta-glow transform hover:scale-105 transition flex items-center justify-center gap-3 group"
+              >
+                QUERO COMEÇAR MINHA JORNADA
+                <ArrowRight className="w-7 h-7 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Para quem é esse Guia? */}
+      <section className="py-24 px-4 bg-slate-900/50">
+        <div className="container mx-auto max-w-6xl">
+          <SectionTitle subtitle="Identifique-se com o perfil certo">Para quem é esse Guia?</SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="glass-card p-10 rounded-[2.5rem] border-green-500/20 shadow-xl">
+              <h3 className="text-2xl md:text-3xl font-black text-green-500 mb-8 flex items-center gap-3">
+                <CheckCircle2 className="w-8 h-8" /> É PARA VOCÊ SE:
+              </h3>
+              <ul className="space-y-5">
+                {[
+                  "Trabalha muito e continua apertado",
+                  "Vive no limite do cartão e cheque especial",
+                  "Sente vergonha de sua situação financeira",
+                  "Quer prosperar sem culpa espiritual",
+                  "Acredita na provisão, mas sente o fluxo travado"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-4 text-slate-200 text-lg md:text-xl font-medium leading-tight">
+                    <CheckCircle2 className="w-6 h-6 text-green-500/70 shrink-0 mt-1" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="glass-card p-10 rounded-[2.5rem] border-red-500/20 shadow-xl">
+              <h3 className="text-2xl md:text-3xl font-black text-red-500 mb-8 flex items-center gap-3">
+                <XCircle className="w-8 h-8" /> NÃO É PARA:
+              </h3>
+              <ul className="space-y-5">
+                {[
+                  "Quem busca milagre mágico sem ação",
+                  "Quem quer enriquecer passando os outros para trás",
+                  "Quem não está disposto a alinhar princípios",
+                  "Pessoas que não valorizam princípios bíblicos"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-4 text-slate-400 text-lg md:text-xl font-medium leading-tight">
+                    <XCircle className="w-6 h-6 text-red-500/70 shrink-0 mt-1" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pastor Carlos Section */}
+      <section className="py-24 px-4 bg-slate-950">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col md:flex-row-reverse gap-16 items-center">
+            <div className="md:w-1/2">
+              <div className="relative group">
+                <div className="absolute -inset-6 bg-amber-500/10 blur-3xl rounded-full opacity-50"></div>
+                <img 
+                  src="https://i.postimg.cc/3wTfk6pT/pastor-carlos.jpg" 
+                  alt="Pastor Carlos" 
+                  className="relative rounded-[3rem] shadow-2xl border-4 border-slate-800 w-full object-cover grayscale-[15%]"
+                />
+              </div>
+            </div>
+            <div className="md:w-1/2">
+              <div className="inline-flex items-center gap-3 bg-amber-500/15 text-amber-500 px-5 py-2 rounded-full text-base font-bold mb-8">
+                <UserCheck className="w-5 h-5" /> O CRIADOR DO MÉTODO
+              </div>
+              <h2 className="text-3xl md:text-6xl font-bold mb-8 text-white leading-tight">
+                Quem é o <br/><span className="gold-gradient">Pastor Carlos?</span>
+              </h2>
+              <div className="space-y-8 text-xl md:text-2xl text-slate-200 leading-relaxed font-medium">
+                <p>
+                  Com anos de experiência ministerial, o <span className="text-white font-black underline decoration-amber-500 underline-offset-4">Pastor Carlos</span> identificou um padrão: a luta contra a escassez, mesmo com a fidelidade.
+                </p>
+                <p>
+                  Sua missão é ensinar que prosperidade bíblica é sobre propósito e liberdade para servir. Este guia é o caminho prático para o seu realinhamento.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* O que esperar após a jornada? */}
+      <section className="py-24 px-4 bg-slate-950">
+        <div className="container mx-auto max-w-6xl">
+          <SectionTitle subtitle="Transformação em 21 dias">O que esperar após a jornada?</SectionTitle>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {[
+              { title: "Fim da sabotagem", icon: <Lock className="w-10 h-10 text-amber-500" /> },
+              { title: "Clareza de decisões", icon: <Target className="w-10 h-10 text-amber-500" /> },
+              { title: "Paz com o saldo", icon: <Coins className="w-10 h-10 text-amber-500" /> },
+              { title: "Confiança familiar", icon: <Users className="w-10 h-10 text-amber-500" /> },
+              { title: "Liberdade para ofertar", icon: <HandHelping className="w-10 h-10 text-amber-500" /> },
+              { title: "Alívio emocional", icon: <Smile className="w-10 h-10 text-amber-500" /> }
+            ].map((item, i) => (
+              <div key={i} className="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center hover:bg-slate-800/40 transition group">
+                <div className="mb-6 transform group-hover:scale-110 transition duration-300">{item.icon}</div>
+                <h4 className="text-xl md:text-2xl font-black text-white">{item.title}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Depoimentos / Prova Social */}
+      <section className="py-24 px-4 bg-slate-900/30">
+        <div className="container mx-auto max-w-6xl">
+          <SectionTitle subtitle="Histórias reais de quem destravou a vida financeira">O que as pessoas estão dizendo</SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { name: "Maria Silva", text: "Eu achava que prosperar era pecado. Depois dos 21 dias, entendi que é propósito. Minhas dívidas estão sendo pagas e tenho paz.", role: "54 anos, São Paulo" },
+              { name: "João Pereira", text: "O grupo VIP com os áudios do Pastor foi o diferencial. Todo dia uma palavra que me levantava e me dava direção prática.", role: "61 anos, Curitiba" },
+              { name: "Ana Santos", text: "O checklist financeiro me abriu os olhos. Consegui economizar o que eu nem sabia que estava jogando fora.", role: "48 anos, Salvador" }
+            ].map((item, i) => (
+              <div key={i} className="glass-card p-8 rounded-[2.5rem] border-amber-500/10 hover:border-amber-500/40 transition group">
+                <div className="flex gap-1 mb-4 text-amber-500">
+                  {[...Array(5)].map((_, j) => <Star key={j} className="w-5 h-5 fill-current" />)}
+                </div>
+                <p className="text-slate-200 text-lg md:text-xl leading-relaxed mb-6 italic font-medium">"{item.text}"</p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center font-black text-amber-500 border border-amber-500/30">
+                    {item.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="text-white font-black text-lg">{item.name}</p>
+                    <p className="text-slate-500 text-sm font-bold">{item.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Bonus Showcase */}
       <section className="py-24 px-4 bg-slate-900/50">
         <div className="container mx-auto max-w-7xl">
           <SectionTitle subtitle="Tudo o que você terá acesso imediato ao escolher o Plano Completo">A Experiência Completa</SectionTitle>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {/* ITEM 1: GUIA 21 DIAS */}
-            <div className="group flex flex-col h-full">
-              <div className="relative glass-card p-4 rounded-[2rem] border-amber-500/20 shadow-xl overflow-hidden mb-6 group-hover:scale-[1.02] transition duration-500">
-                <div className="absolute top-4 left-4 bg-amber-500 text-slate-950 px-3 py-1 rounded-full text-[10px] font-black uppercase z-10">Produto Base</div>
-                <img 
-                  src="https://i.postimg.cc/XYnLc9kZ/mockup-2.png" 
-                  alt="Guia 21 Dias de Propósito" 
-                  className="relative rounded-xl w-full h-auto object-contain"
-                />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+            <div className="flex flex-col h-full text-center group">
+              <div className="glass-card p-4 rounded-[2.5rem] border-amber-500/20 shadow-xl overflow-hidden mb-8 group-hover:scale-105 transition duration-500">
+                <img src="https://i.postimg.cc/XYnLc9kZ/mockup-2.png" alt="Guia 21 Dias" className="rounded-xl w-full h-auto" />
               </div>
-              <h3 className="text-xl md:text-2xl font-black text-white text-center mb-3">Guia 21 Dias de Propósito</h3>
-              <p className="text-slate-300 text-base md:text-lg text-center px-4 leading-relaxed font-medium">Sua jornada diária de alinhamento espiritual e financeiro com direcionamento claro.</p>
+              <h3 className="text-2xl md:text-3xl font-black text-white mb-4">Guia 21 Dias de Propósito</h3>
+              <p className="text-slate-200 text-lg md:text-xl leading-relaxed font-medium px-4">Sua jornada diária de alinhamento espiritual e financeiro.</p>
             </div>
 
-            {/* ITEM 2: DEVOCIONAL TERAPIA */}
-            <div className="group flex flex-col h-full">
-              <div className="relative glass-card p-4 rounded-[2rem] border-amber-500/20 shadow-xl overflow-hidden mb-6 group-hover:scale-[1.02] transition duration-500">
-                <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase z-10">Bônus Especial</div>
-                <img 
-                  src="https://devocional-terapia-com-deus.vercel.app/images/devocional-tablet.jpg" 
-                  alt="Devocional Terapia com Deus" 
-                  className="relative rounded-xl w-full h-auto object-contain"
-                />
+            <div className="flex flex-col h-full text-center group">
+              <div className="glass-card p-4 rounded-[2.5rem] border-amber-500/20 shadow-xl overflow-hidden mb-8 group-hover:scale-105 transition duration-500">
+                <img src="https://devocional-terapia-com-deus.vercel.app/images/devocional-tablet.jpg" alt="Devocional" className="rounded-xl w-full h-auto" />
               </div>
-              <div className="text-center px-4">
-                <ValueBadge />
-                <h3 className="text-xl md:text-2xl font-black text-white mb-3">Devocional: Terapia com Deus</h3>
-                <p className="text-slate-200 text-base leading-relaxed italic font-medium">
-                  "O Guia diário para transformar a sua vida com Deus! Cada Dia é um convite para uma conversa íntima e inspiradora com ELE."
-                </p>
-              </div>
+              <ValueBadge />
+              <h3 className="text-2xl md:text-3xl font-black text-white mb-4">Devocional: Terapia com Deus</h3>
+              <p className="text-slate-100 text-lg md:text-xl leading-relaxed italic font-medium px-4">"O Guia diário para transformar a sua vida com Deus! Cada Dia é um convite para uma conversa íntima."</p>
             </div>
 
-            {/* ITEM 3: PACK DE BÔNUS VIP */}
-            <div className="group flex flex-col h-full">
-              <div className="relative glass-card p-4 rounded-[2rem] border-amber-500/20 shadow-xl overflow-hidden mb-6 group-hover:scale-[1.02] transition duration-500">
-                <div className="absolute top-4 left-4 bg-green-500 text-slate-950 px-3 py-1 rounded-full text-[10px] font-black uppercase z-10">Pack Premium</div>
-                <img 
-                  src="https://i.postimg.cc/fRMCjYf7/mockup-bonus.jpg" 
-                  alt="Bônus VIP e Checklist" 
-                  className="relative rounded-xl w-full h-auto object-contain shadow-2xl"
-                />
+            <div className="flex flex-col h-full text-center group">
+              <div className="glass-card p-4 rounded-[2.5rem] border-amber-500/20 shadow-xl overflow-hidden mb-8 group-hover:scale-105 transition duration-500">
+                <img src="https://i.postimg.cc/fRMCjYf7/mockup-bonus.jpg" alt="Pack Bônus" className="rounded-xl w-full h-auto" />
               </div>
-              <div className="text-center px-4">
-                <ValueBadge />
-                <h3 className="text-xl md:text-2xl font-black text-white mb-3">Pack de Bônus VIP</h3>
-                <div className="space-y-3 text-slate-300 text-base leading-relaxed font-medium">
-                   <p><strong className="text-amber-400">Oração contra escassez:</strong> como declarar provisão na sua vida!</p>
-                   <p><strong className="text-amber-400">Checklist Financeiro:</strong> Planilhas práticas para organizar suas contas!</p>
-                </div>
+              <ValueBadge />
+              <h3 className="text-2xl md:text-3xl font-black text-white mb-4">Pack de Bônus VIP</h3>
+              <div className="space-y-4 text-slate-200 text-lg md:text-xl leading-relaxed font-medium px-4">
+                 <p><strong className="text-amber-400">Oração contra escassez:</strong> declarar provisão e abundancia!</p>
+                 <p><strong className="text-amber-400">Checklist Financeiro:</strong> Planilhas para organizar a vida financeira!</p>
               </div>
             </div>
           </div>
 
-          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
-             <div className="glass-card p-8 rounded-[2rem] border-l-4 border-l-green-500 hover:bg-slate-800/40 transition-all flex flex-col justify-between">
+          {/* WhatsApp and Emotional Bonuses */}
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+             <div className="glass-card p-10 rounded-[2.5rem] border-l-8 border-l-green-500 flex flex-col justify-between hover:bg-slate-800/40 transition">
                 <div>
                   <ValueBadge />
-                  <h3 className="text-xl md:text-2xl font-black flex items-center gap-3 mb-3 text-white">
-                    <MessageCircle className="text-green-500 shrink-0 w-7 h-7" /> Grupo VIP de WhatsApp
+                  <h3 className="text-2xl md:text-3xl font-black flex items-center gap-4 mb-4 text-white">
+                    <MessageCircle className="text-green-500 shrink-0 w-8 h-8" /> Grupo VIP de WhatsApp
                   </h3>
-                  <p className="text-slate-200 text-lg leading-relaxed font-medium">Receba ÁUDIOS e DICAS diárias diretamente do Pastor Carlos para te guiar no propósito.</p>
+                  <p className="text-slate-100 text-xl leading-relaxed font-medium">Receba ÁUDIOS e DICAS diárias diretamente do Pastor Carlos para te guiar no propósito.</p>
                 </div>
              </div>
-             <div className="glass-card p-8 rounded-[2rem] border-l-4 border-l-amber-500 hover:bg-slate-800/40 transition-all flex flex-col justify-between">
+             <div className="glass-card p-10 rounded-[2.5rem] border-l-8 border-l-amber-500 flex flex-col justify-between hover:bg-slate-800/40 transition">
                 <div>
                   <ValueBadge />
-                  <h3 className="text-xl md:text-2xl font-black flex items-center gap-3 mb-3 text-white">
-                    <Heart className="text-amber-500 shrink-0 w-7 h-7" /> Inteligência Emocional Bíblica
+                  <h3 className="text-2xl md:text-3xl font-black flex items-center gap-4 mb-4 text-white">
+                    <Heart className="text-amber-500 shrink-0 w-8 h-8" /> Inteligência Emocional Bíblica
                   </h3>
-                  <p className="text-slate-200 text-lg leading-relaxed font-medium">Entenda como suas emoções afetam seu bolso e como curar essa raiz com a Palavra.</p>
+                  <p className="text-slate-100 text-xl leading-relaxed font-medium">Entenda como suas emoções afetam seu bolso e como curar essa raiz com a Palavra.</p>
                 </div>
              </div>
           </div>
 
           {/* PRICING SECTION */}
-          <SectionTitle id="checkout" subtitle="Invista no seu alinhamento com Deus e desbloqueie o que já é seu">Escolha o seu plano</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            
+          <SectionTitle id="checkout">Escolha o seu plano</SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
             {/* PLANO BÁSICO */}
-            <div className="glass-card p-8 rounded-[2.5rem] border-slate-800 hover:border-slate-700 transition relative flex flex-col h-full shadow-lg">
-              <p className="text-slate-500 uppercase tracking-widest font-black text-xs mb-4">Essencial</p>
-              <h3 className="text-3xl md:text-4xl font-black text-white mb-3 uppercase tracking-tighter">Plano Básico</h3>
-              <div className="flex items-end gap-2 mb-8">
-                <span className="text-5xl md:text-6xl font-black text-white tracking-tighter">R$ 17,90</span>
-                <span className="text-slate-500 mb-1 font-bold">Único</span>
+            <div className="glass-card p-10 rounded-[3rem] border-slate-800 flex flex-col h-full shadow-lg">
+              <p className="text-slate-500 uppercase tracking-widest font-black text-sm mb-6">Essencial</p>
+              <h3 className="text-4xl font-black text-white mb-4 uppercase tracking-tighter">Plano Básico</h3>
+              <div className="flex items-end gap-3 mb-10">
+                <span className="text-6xl md:text-7xl font-black text-white tracking-tighter">R$ 17,90</span>
+                <span className="text-slate-400 mb-2 font-bold text-xl">Único</span>
               </div>
-              
-              <ul className="space-y-4 mb-10 flex-grow">
-                <li className="flex items-start gap-3 text-slate-200 text-lg font-medium leading-tight">
-                  <CheckCircle2 className="w-6 h-6 text-amber-500 shrink-0" />
-                  Guia Digital 21 Dias de Propósito
-                </li>
-                <li className="flex items-start gap-3 text-slate-200 text-lg font-medium leading-tight">
-                  <CheckCircle2 className="w-6 h-6 text-amber-500 shrink-0" />
-                  Acesso Vitalício ao Guia
-                </li>
-                <li className="flex items-start gap-3 text-slate-500 text-base font-bold line-through opacity-30">
-                  <XCircle className="w-6 h-6 text-slate-700 shrink-0" />
-                  Grupo VIP WhatsApp (Áudios)
-                </li>
-                <li className="flex items-start gap-3 text-slate-500 text-base font-bold line-through opacity-30">
-                  <XCircle className="w-6 h-6 text-slate-700 shrink-0" />
-                  Devocional: Terapia com Deus
-                </li>
+              <ul className="space-y-6 mb-12 flex-grow">
+                <li className="flex items-start gap-4 text-slate-100 text-xl font-medium leading-tight"><CheckCircle2 className="w-7 h-7 text-amber-500 shrink-0" /> Guia Digital 21 Dias</li>
+                <li className="flex items-start gap-4 text-slate-100 text-xl font-medium leading-tight"><CheckCircle2 className="w-7 h-7 text-amber-500 shrink-0" /> Acesso Vitalício</li>
+                <li className="flex items-start gap-4 text-slate-500 text-lg font-bold line-through opacity-30"><XCircle className="w-7 h-7 text-slate-700 shrink-0" /> Grupo VIP WhatsApp</li>
               </ul>
-              
-              <a 
-                href={CHECKOUT_BASIC_URL} 
-                className="w-full bg-slate-800 text-white font-black py-4 rounded-xl text-lg hover:bg-slate-700 transition flex items-center justify-center gap-2"
-              >
-                QUERO O BÁSICO
-                <ArrowRight className="w-5 h-5" />
-              </a>
+              <a href={CHECKOUT_BASIC_URL} className="w-full bg-slate-800 text-white font-black py-5 rounded-2xl text-2xl flex items-center justify-center gap-3 hover:bg-slate-700 transition">QUERO O BÁSICO <ArrowRight className="w-7 h-7" /></a>
             </div>
-
             {/* PLANO COMPLETO */}
-            <div className="glass-card p-8 rounded-[2.5rem] border-2 border-amber-500/50 relative overflow-hidden flex flex-col h-full shadow-[0_0_50px_rgba(217,119,6,0.15)] md:scale-105">
-              <div className="absolute top-0 right-0 gold-bg text-slate-950 px-8 py-1 rotate-45 translate-x-6 translate-y-4 font-black text-[10px] uppercase tracking-widest shadow-xl">
-                 RECOMENDADO
+            <div className="glass-card p-10 rounded-[3rem] border-4 border-amber-500/50 relative overflow-hidden flex flex-col h-full shadow-[0_0_80px_rgba(217,119,6,0.25)] md:scale-105">
+              <div className="absolute top-0 right-0 gold-bg text-slate-950 px-10 py-2 rotate-45 translate-x-8 translate-y-6 font-black text-xs uppercase tracking-widest shadow-xl">RECOMENDADO</div>
+              <p className="text-amber-500 uppercase tracking-widest font-black text-sm mb-6 flex items-center gap-2"><Crown className="w-5 h-5" /> Transformação Total</p>
+              <h3 className="text-4xl font-black text-white mb-4 uppercase tracking-tighter">Plano Completo</h3>
+              <div className="flex items-end gap-3 mb-10">
+                <span className="text-6xl md:text-7xl font-black gold-gradient tracking-tighter">R$ 27,00</span>
+                <span className="text-slate-400 mb-2 font-bold text-xl">Único</span>
               </div>
-              <p className="text-amber-500 uppercase tracking-widest font-black text-xs mb-4 flex items-center gap-2">
-                <Crown className="w-3 h-3" /> Transformação Total
-              </p>
-              <h3 className="text-3xl md:text-4xl font-black text-white mb-3 uppercase tracking-tighter">Plano Completo</h3>
-              <div className="flex items-end gap-2 mb-8">
-                <span className="text-5xl md:text-6xl font-black gold-gradient tracking-tighter">R$ 27,00</span>
-                <span className="text-slate-500 mb-1 font-bold">Único</span>
-              </div>
-              
-              <ul className="space-y-4 mb-10 flex-grow">
-                <li className="flex items-start gap-3 text-white text-lg font-black leading-tight">
-                  <CheckCircle2 className="w-6 h-6 text-amber-500 shrink-0" />
-                  Guia Digital 21 Dias de Propósito
-                </li>
-                <li className="flex items-start gap-3 text-white text-lg font-black leading-tight">
-                  <CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" />
-                  Grupo VIP WhatsApp (ÁUDIOS DIÁRIOS)
-                </li>
-                <li className="flex items-start gap-3 text-white text-lg font-black leading-tight">
-                  <CheckCircle2 className="w-6 h-6 text-amber-500 shrink-0" />
-                  Devocional: Terapia com Deus (GRÁTIS)
-                </li>
-                <li className="flex items-start gap-3 text-white text-lg font-black leading-tight">
-                  <CheckCircle2 className="w-6 h-6 text-amber-500 shrink-0" />
-                  Oração e Planilhas Financeiras (GRÁTIS)
-                </li>
-                <li className="flex items-start gap-3 text-white text-lg font-black leading-tight">
-                  <CheckCircle2 className="w-6 h-6 text-amber-500 shrink-0" />
-                  Bônus: Inteligência Emocional Bíblica
-                </li>
+              <ul className="space-y-6 mb-12 flex-grow">
+                <li className="flex items-start gap-4 text-white text-xl font-black leading-tight"><CheckCircle2 className="w-7 h-7 text-amber-500 shrink-0" /> Guia Digital 21 Dias</li>
+                <li className="flex items-start gap-4 text-white text-xl font-black leading-tight"><CheckCircle2 className="w-7 h-7 text-green-500 shrink-0" /> Grupo VIP (ÁUDIOS DIÁRIOS)</li>
+                <li className="flex items-start gap-4 text-white text-xl font-black leading-tight"><CheckCircle2 className="w-7 h-7 text-amber-500 shrink-0" /> Devocional: Terapia com Deus</li>
+                <li className="flex items-start gap-4 text-white text-xl font-black leading-tight"><CheckCircle2 className="w-7 h-7 text-amber-500 shrink-0" /> Oração e Planilhas Financeiras</li>
               </ul>
-              
-              <a 
-                href={CHECKOUT_COMPLETE_URL} 
-                className="w-full gold-bg text-slate-950 font-black py-5 rounded-xl text-xl hover:scale-105 transition shadow-[0_0_30px_rgba(217,119,6,0.3)] flex items-center justify-center gap-2"
-              >
-                QUERO O COMPLETO
-                <ArrowRight className="w-6 h-6" />
-              </a>
-              <p className="mt-4 text-xs text-slate-400 flex items-center justify-center gap-1 uppercase font-black tracking-widest">
-                <ShieldCheck className="w-4 h-4 text-green-500" /> Acesso Seguro e Imediato
-              </p>
+              <a href={CHECKOUT_COMPLETE_URL} className="w-full gold-bg text-slate-950 font-black py-6 rounded-2xl text-3xl flex items-center justify-center gap-3 hover:scale-105 transition shadow-2xl">QUERO O COMPLETO <ArrowRight className="w-8 h-8" /></a>
+              <p className="mt-6 text-sm text-slate-400 flex items-center justify-center gap-2 uppercase font-black tracking-widest"><ShieldCheck className="w-5 h-5 text-green-500" /> Acesso Seguro e Imediato</p>
             </div>
-
           </div>
         </div>
       </section>
 
       {/* Guarantee & FAQ */}
       <section className="py-24 px-4 relative overflow-hidden text-center flex flex-col items-center">
-        <ShieldCheck className="w-20 h-20 text-amber-500 mb-6 drop-shadow-[0_0_15px_rgba(217,119,6,0.3)]" />
-        <h2 className="text-3xl md:text-5xl font-black mb-6 gold-gradient">7 Dias de Garantia</h2>
-        <p className="text-lg md:text-xl text-slate-300 mb-16 max-w-2xl leading-relaxed font-medium">
-          Sua satisfação ou seu dinheiro de volta. Devolvemos 100% do seu investimento se não estiver satisfeito.
+        <ShieldCheck className="w-24 h-24 text-amber-500 mb-8 drop-shadow-[0_0_20px_rgba(217,119,6,0.4)]" />
+        <h2 className="text-4xl md:text-6xl font-black mb-8 gold-gradient">7 Dias de Garantia</h2>
+        <p className="text-xl md:text-2xl text-slate-200 mb-20 max-w-3xl leading-relaxed font-medium">
+          Garantia Incondicional: Se por qualquer motivo você sentir que esse guia não é para você, basta pedir o reembolso dentro de 7 dias. Sem perguntas. Sem constrangimento. Sem culpa.
         </p>
         
-        <div className="w-full max-w-3xl text-left">
-          <FAQItem 
-            question="O que vem no Plano Completo?" 
-            answer="No Plano Completo você leva o Guia 21 Dias + Devocional 'Terapia com Deus' + Grupo de WhatsApp com áudios diários do Pastor + Oração contra escassez + Checklist de Alinhamento com planilhas financeiras + Bônus de Inteligência Emocional." 
-          />
-          <FAQItem 
-            question="Como funcionam as planilhas financeiras?" 
-            answer="São ferramentas práticas incluídas no Checklist de Alinhamento para você listar suas dívidas, gastos e entradas de forma simples e direta sob princípios cristãos." 
-          />
-          <FAQItem 
-            question="Os áudios do Pastor Carlos são ao vivo?" 
-            answer="Os áudios são enviados diariamente no grupo VIP de WhatsApp, trazendo orientações e palavras de ânimo exclusivas. Você pode ouvir a qualquer momento." 
-          />
+        <div className="w-full max-w-4xl text-left">
+          <FAQItem question="O que vem no Plano Completo?" answer="No Plano Completo você leva o Guia 21 Dias + Devocional 'Terapia com Deus' + Grupo de WhatsApp com áudios diários do Pastor + Oração contra escassez + Checklist de Alinhamento com planilhas financeiras + Bônus de Inteligência Emocional Bíblica." />
+          <FAQItem question="Como funcionam as planilhas financeiras?" answer="São ferramentas práticas incluídas no Checklist de Alinhamento para você listar suas dívidas, gastos e entradas de forma simples e direta sob princípios cristãos." />
+          <FAQItem question="Os áudios do Pastor Carlos são ao vivo?" answer="Os áudios são enviados diariamente no grupo VIP de WhatsApp, trazendo orientações, orações e palavras de ânimo exclusivas para quem está na jornada." />
+          <FAQItem question="Isso é religioso demais?" answer="Não. É espiritual, bíblico e aplicável à vida real. O propósito é focado em transformação prática e realinhamento da sua vida com Deus." />
+          <FAQItem question="Vou ficar rico em 21 dias?" answer="Não prometemos riqueza mágica. Prometemos desbloqueio, clareza e direção espiritual para que você saia da escassez e entre no fluxo da provisão prometida." />
+          <FAQItem question="Preciso ser um cristão perfeito?" answer="Não. Precisa apenas estar disposto a se alinhar e seguir os princípios de mordomia e propósito ensinados no guia." />
+          <FAQItem question="Funciona mesmo estando endividado?" answer="Principalmente para quem está endividado. O guia traz a clareza emocional e a direção espiritual necessária para começar a sair do buraco financeiro." />
         </div>
       </section>
 
       {/* Final CTA Footer */}
       <footer className="py-24 px-4 bg-slate-950 text-center relative overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-full h-1 gold-bg"></div>
-        <div className="container mx-auto max-w-4xl relative z-10">
-          <h2 className="text-3xl md:text-6xl font-black mb-10 uppercase leading-tight">A sua nova história <br/><span className="gold-gradient">começa agora.</span></h2>
-          <a 
-            href="#checkout" 
-            className="mx-auto gold-bg text-slate-950 font-black py-6 px-12 rounded-full text-2xl shadow-[0_0_30px_rgba(217,119,6,0.4)] hover:scale-105 transition block w-fit"
-          >
-            QUERO COMEÇAR AGORA
+        <div className="absolute bottom-0 left-0 w-full h-2 gold-bg"></div>
+        <div className="container mx-auto max-w-5xl relative z-10">
+          <h2 className="text-4xl md:text-7xl font-black mb-12 uppercase leading-tight">
+            Pare de viver no aperto. <br/>
+            <span className="gold-gradient">Comece seu propósito hoje.</span>
+          </h2>
+          <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto font-medium">
+            Dê o primeiro passo para destravar sua vida financeira com propósito. O seu futuro próspero começa no alinhamento com Deus.
+          </p>
+          
+          <a href="#checkout" className="mx-auto gold-bg text-slate-950 font-black py-7 px-14 rounded-full text-2xl md:text-3xl shadow-[0_0_40px_rgba(217,119,6,0.5)] hover:scale-105 transition block w-fit">
+            QUERO DESTRAVAR MINHA VIDA
           </a>
           
-          <div className="mt-16 flex flex-wrap justify-center gap-8 opacity-50 grayscale">
-            <img src="https://logodownload.org/wp-content/uploads/2014/10/visa-logo-5.png" alt="Visa" className="h-4 brightness-0 invert" />
-            <img src="https://logodownload.org/wp-content/uploads/2014/07/mastercard-logo-7.png" alt="Mastercard" className="h-4 brightness-0 invert" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_Pix.png/1200px-Logo_Pix.png" alt="Pix" className="h-4 brightness-0 invert" />
+          <div className="mt-20 flex flex-wrap justify-center gap-10 opacity-50 grayscale hover:opacity-100 transition duration-500">
+            <img src="https://logodownload.org/wp-content/uploads/2014/10/visa-logo-5.png" alt="Visa" className="h-6 brightness-0 invert" />
+            <img src="https://logodownload.org/wp-content/uploads/2014/07/mastercard-logo-7.png" alt="Mastercard" className="h-6 brightness-0 invert" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_Pix.png/1200px-Logo_Pix.png" alt="Pix" className="h-6 brightness-0 invert" />
           </div>
 
-          <div className="border-t border-slate-900 mt-20 pt-12 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-600 text-[10px] uppercase font-bold tracking-widest">
-            <p>&copy; 2024 - 21 DIAS DE PROPÓSITO FINANCEIRO. TODOS OS DIREITOS RESERVADOS.</p>
-            <div className="flex gap-8">
-              <a href="#" className="hover:text-amber-500 transition-colors">Termos</a>
-              <a href="#" className="hover:text-amber-500 transition-colors">Privacidade</a>
+          <div className="border-t border-slate-900 mt-24 pt-16 text-slate-500 text-sm font-bold max-w-4xl mx-auto space-y-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+              <p className="uppercase tracking-[0.2em] font-black">21 Dias de Propósito - Vida Financeira Desbloqueada</p>
+              <div className="flex gap-8 uppercase tracking-widest text-xs font-black">
+                <a href="#" className="hover:text-amber-500 transition">Termos</a>
+                <a href="#" className="hover:text-amber-500 transition">Privacidade</a>
+              </div>
             </div>
+            <p className="text-xs opacity-60 font-medium">
+              © 2024. Todos os direitos reservados. Este site não é afiliado ao Facebook ou Google.
+            </p>
           </div>
         </div>
       </footer>
