@@ -13,7 +13,8 @@ import {
   Star,
   Zap,
   BookOpen,
-  CalendarDays
+  CalendarDays,
+  UserCheck
 } from 'lucide-react';
 
 // --- Helper Components ---
@@ -161,6 +162,50 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* Video Testimonials Section */}
+      <section className="py-24 px-4 bg-slate-900/30 overflow-hidden">
+        <div className="container mx-auto max-w-5xl">
+          <SectionTitle subtitle="Milhares de vidas já foram tocadas e transformadas através deste propósito">
+            Vidas Transformadas
+          </SectionTitle>
+          
+          <div className="flex flex-col md:flex-row gap-12 items-center">
+            <div className="md:w-1/2 space-y-6">
+              <div className="glass-card p-6 rounded-2xl border-amber-500/10">
+                <div className="flex gap-1 text-amber-500 mb-4">
+                  {[1,2,3,4,5].map(i => <Star key={i} className="w-5 h-5 fill-current" />)}
+                </div>
+                <p className="text-lg text-slate-200 italic mb-4">
+                  "Eu não acreditava que em apenas 21 dias minha visão sobre dinheiro mudaria tanto. Hoje durmo em paz, sabendo que Deus é meu provedor e que as amarras da escassez foram quebradas."
+                </p>
+                <p className="font-bold text-amber-400">— Maria S., Aluna do Propósito</p>
+              </div>
+              <div className="glass-card p-6 rounded-2xl border-amber-500/10">
+                <div className="flex gap-1 text-amber-500 mb-4">
+                  {[1,2,3,4,5].map(i => <Star key={i} className="w-5 h-5 fill-current" />)}
+                </div>
+                <p className="text-lg text-slate-200 italic mb-4">
+                  "O Pastor Carlos traz uma palavra que confronta e liberta ao mesmo tempo. Minha família toda foi abençoada."
+                </p>
+                <p className="font-bold text-amber-400">— João P., Empresário</p>
+              </div>
+            </div>
+            
+            <div className="md:w-1/2 w-full flex justify-center">
+              <div className="relative w-full max-w-[450px] glass-card p-3 rounded-[2rem] border-amber-500/30 shadow-[0_0_50px_rgba(217,119,6,0.1)]">
+                {/* @ts-ignore - LiteVideo Custom Element */}
+                <lite-video-player 
+                  video-id="766fe085-e515-4adf-b9b7-7b6a4217b618" 
+                  aspect-ratio="square" 
+                  base-url="https://app.litevideo.net" 
+                  params="aspectRatio=square&coverColor=%23000f5c&progressSpeed=normal&progressBarHeight=8&showCover=true&coverStyle=gradient&playIconStyle=circle&playIconSize=large&showTitle=false&showControls=false&showProgressBar=true&iconColor=%23ffffff&iconBackgroundColor=%23ff0000&iconBackgroundOpacity=100&progressBarColor=%23ff0000&controlsStyle=default&controlsPosition=bottom&controlsColor=%23ffffff&controlsBackground=gradient&hoverEffect=fade&autoPlay=true&loop=false&liveSimulatorEnabled=false&liveSimulatorViewersMin=10&liveSimulatorViewersMax=50&liveSimulatorGrowthRate=moderate&domainLockEnabled=false&domainLockDomains=&showComments=false"
+                ></lite-video-player>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* The Solution */}
       <section className="py-24 px-4 bg-gradient-to-b from-transparent to-slate-950">
         <div className="container mx-auto max-w-6xl">
@@ -197,6 +242,54 @@ const App: React.FC = () => {
                 ))}
               </ul>
               <CTAButton>COMEÇAR MEU DESBLOQUEIO AGORA</CTAButton>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Creator Section (Pastor Carlos) */}
+      <section className="py-24 px-4 bg-slate-950">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col md:flex-row-reverse gap-16 items-center">
+            <div className="md:w-1/2">
+              <div className="relative group">
+                <div className="absolute -inset-4 bg-amber-500/10 blur-3xl rounded-full opacity-50 group-hover:opacity-100 transition duration-500"></div>
+                <img 
+                  src="https://i.postimg.cc/3wTfk6pT/pastor-carlos.jpg" 
+                  alt="Pastor Carlos - Criador do Propósito" 
+                  className="relative rounded-[3rem] shadow-2xl border-4 border-slate-800 w-full object-cover grayscale-[20%] hover:grayscale-0 transition duration-500"
+                />
+              </div>
+            </div>
+            <div className="md:w-1/2">
+              <div className="inline-flex items-center gap-2 bg-amber-500/10 text-amber-500 px-4 py-1 rounded-full text-sm font-bold mb-6">
+                <UserCheck className="w-4 h-4" /> O CRIADOR DO MÉTODO
+              </div>
+              <h2 className="text-4xl md:text-6xl font-bold mb-8">
+                Quem é o <span className="gold-gradient">Pastor Carlos?</span>
+              </h2>
+              <div className="space-y-6 text-lg text-slate-400 leading-relaxed">
+                <p>
+                  Com anos de experiência ministerial e aconselhamento, o <span className="text-white font-semibold">Pastor Carlos</span> identificou um padrão comum em muitos lares cristãos: a luta constante contra a escassez, mesmo com a prática da fidelidade e da oração.
+                </p>
+                <p>
+                  Sua missão é ensinar que a prosperidade bíblica não é sobre ganância, mas sobre <span className="text-white font-semibold">propósito e liberdade para servir.</span> Ele desenvolveu esta jornada de 21 dias para ser o guia prático e espiritual que ele mesmo gostaria de ter tido no início de sua caminhada.
+                </p>
+                <p className="italic border-l-2 border-amber-500 pl-6 text-slate-300">
+                  "Minha maior alegria é ver um filho de Deus sair do desespero das dívidas e entrar na paz da provisão, podendo finalmente ser uma benção na vida de outros."
+                </p>
+              </div>
+              <div className="mt-10 flex gap-6">
+                 <div>
+                    <p className="text-3xl font-black text-white">15+</p>
+                    <p className="text-xs text-slate-500 uppercase font-bold tracking-widest">Anos de Ministério</p>
+                 </div>
+                 <div className="h-10 w-px bg-slate-800"></div>
+                 <div>
+                    <p className="text-3xl font-black text-white">10k+</p>
+                    <p className="text-xs text-slate-500 uppercase font-bold tracking-widest">Vidas Impactadas</p>
+                 </div>
+              </div>
             </div>
           </div>
         </div>
