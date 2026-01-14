@@ -102,11 +102,39 @@ const App: React.FC = () => {
 
           <div className="relative mt-8 w-full max-w-4xl mx-auto flex justify-center">
             <div className="absolute -inset-10 bg-amber-500/10 blur-[100px] rounded-full"></div>
+            
             <div className="relative glass-card rounded-[2.5rem] p-3 md:p-8 border border-amber-500/30 shadow-[0_0_50px_rgba(217,119,6,0.2)]">
+              {/* Floating Badges Requested */}
+              <div className="absolute -left-4 top-10 z-20 flex flex-col gap-3">
+                <div className="glass-card px-4 py-2 rounded-xl border border-amber-500/40 shadow-xl backdrop-blur-xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                  <p className="text-amber-400 font-black text-xs md:text-sm uppercase tracking-tighter flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4" /> Guia Digital Completo
+                  </p>
+                </div>
+                <div className="glass-card px-4 py-2 rounded-xl border border-amber-500/40 shadow-xl backdrop-blur-xl animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                  <p className="text-white font-black text-xs md:text-sm uppercase tracking-tighter flex items-center gap-2">
+                    <Star className="w-4 h-4 text-amber-500 fill-amber-500" /> Acesso Vitalício
+                  </p>
+                </div>
+              </div>
+
+              {/* Social Proof Badge Requested */}
+              <div className="absolute -right-4 bottom-10 z-20 glass-card px-5 py-3 rounded-2xl border border-amber-500/40 shadow-2xl backdrop-blur-xl flex items-center gap-3 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+                <div className="flex -space-x-2">
+                  <img src="https://i.pravatar.cc/100?u=1" className="w-8 h-8 rounded-full border-2 border-slate-900" alt="User" />
+                  <img src="https://i.pravatar.cc/100?u=2" className="w-8 h-8 rounded-full border-2 border-slate-900" alt="User" />
+                  <img src="https://i.pravatar.cc/100?u=3" className="w-8 h-8 rounded-full border-2 border-slate-900" alt="User" />
+                </div>
+                <div>
+                  <p className="text-white font-black text-sm leading-none">+5.420</p>
+                  <p className="text-amber-500 font-bold text-[10px] uppercase tracking-widest">inscritos</p>
+                </div>
+              </div>
+
               <img 
                 src="https://i.postimg.cc/7L6NjDcr/mockup-1.png" 
                 alt="21 Dias de Propósito com Deus - Mockup Principal" 
-                className="w-full h-auto rounded-[1.5rem] max-w-[850px] block"
+                className="w-full h-auto rounded-[1.5rem] max-w-[850px] block relative z-10"
               />
             </div>
           </div>
@@ -125,7 +153,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Video de Depoimento - ATUALIZADO */}
+      {/* Video de Depoimento */}
       <section className="py-24 px-4 bg-slate-900/30">
         <div className="container mx-auto max-w-2xl text-center">
           <SectionTitle subtitle="Veja o impacto deste propósito na vida de quem já aceitou o desafio">Veja o que Deus está fazendo</SectionTitle>
@@ -185,7 +213,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* The Solution Section - TITULO ATUALIZADO */}
+      {/* The Solution Section */}
       <section className="py-24 px-4 bg-gradient-to-b from-transparent to-slate-950">
         <div className="container mx-auto max-w-6xl">
           <SectionTitle subtitle="E se o desbloqueio não começasse no banco… mas no propósito?">A Solução para sua Vida Financeira!</SectionTitle>
