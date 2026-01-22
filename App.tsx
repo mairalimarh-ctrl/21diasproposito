@@ -25,8 +25,8 @@ import {
 
 // --- Helper Components ---
 
-const CHECKOUT_BASIC_URL = "https://pay.lowify.com.br/go.php?offer=ifakq9j";
-const CHECKOUT_COMPLETE_URL = "https://pay.lowify.com.br/checkout.php?product_id=5ho0Or";
+const CHECKOUT_BASIC_URL = "https://pay.kiwify.com.br/J7a1ih9";
+const CHECKOUT_COMPLETE_URL = "https://pay.kiwify.com.br/0BhuSJD";
 
 const SectionTitle: React.FC<{ children: React.ReactNode; subtitle?: string; light?: boolean; id?: string }> = ({ children, subtitle, light, id }) => (
   <div className="text-center mb-10 md:mb-16 px-4" id={id}>
@@ -391,7 +391,7 @@ const App: React.FC = () => {
 
             <div className="flex flex-col h-full text-center group mt-8 md:mt-0">
               <div className="glass-card p-2 md:p-4 rounded-[1.5rem] md:rounded-[2.5rem] border-amber-500/20 shadow-xl overflow-hidden mb-6 md:mb-8 group-hover:scale-105 transition duration-500">
-                <img src="https://devocional-terapia-com-deus.vercel.app/images/devocional-tablet.jpg" alt="Devocional" className="rounded-lg md:rounded-xl w-full h-auto" />
+                <img src="https://i.postimg.cc/QMYYDRKj/mockup-devocional-tablet.png" alt="Devocional" className="rounded-lg md:rounded-xl w-full h-auto" />
               </div>
               <ValueBadge />
               <h3 className="text-xl md:text-3xl font-black text-white mb-2 md:mb-4 px-4">Devocional: Terapia com Deus</h3>
