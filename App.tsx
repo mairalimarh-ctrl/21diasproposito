@@ -81,7 +81,7 @@ const App: React.FC = () => {
             🔥 PARA CRISTIANOS QUE BUSCAN PROVISIÓN
           </div>
           <h1 className="text-3xl md:text-7xl font-bold leading-tight mb-6 md:mb-8 max-w-5xl px-2">
-            ¿Oras, ayunas, eres fiel… pero el dinero sigue <span className="gold-gradient">acabándose antes de fin de mes?</span>
+            ¿Oras, ayunas, eres fiel… pero el dinheiro sigue <span className="gold-gradient">acabándose antes de fin de mes?</span>
           </h1>
           <p className="text-lg md:text-2xl text-slate-200 mb-10 max-w-4xl leading-relaxed font-medium px-2">
             Descubre cómo vivir 21 días de propósito con Dios para romper el ciclo de escasez, dejar de vivir en aprietos y activar la provisión que ya te fue prometida — sin culpa por querer prosperar.
@@ -147,6 +147,21 @@ const App: React.FC = () => {
             <p className="text-white font-black text-xl md:text-3xl border-l-4 border-amber-500 pl-5 md:pl-6 text-left py-4 bg-amber-500/5 rounded-r-lg">
               Pero cuando abres la aplicación del banco, el saldo no confirma la Palabra.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Section Re-introduced */}
+      <section className="py-16 md:py-24 px-4 bg-slate-900/30">
+        <div className="container mx-auto max-w-4xl text-center">
+          <SectionTitle subtitle="Mira el impacto de este propósito en la vida de quienes ya aceptaron el desafío">Mira lo que Dios está haciendo</SectionTitle>
+          <div className="glass-card p-1.5 md:p-4 rounded-[1.5rem] md:rounded-[2rem] border-amber-500/30 shadow-[0_0_50px_rgba(217,119,6,0.15)] overflow-hidden">
+            <lite-video-player 
+              video-id="47eb2c8c-8ee3-40e4-9283-3ad6785bd6c9" 
+              base-url="https://app.litevideo.net" 
+              aspect-ratio="16:9" 
+              params="aspectRatio=16%3A9&coverColor=%23000000&progressSpeed=normal&progressBarHeight=6&showCover=true&coverStyle=gradient&playIconStyle=circle&playIconSize=huge&showTitle=true&showControls=false&showProgressBar=true&iconColor=%23ffffff&iconBackgroundColor=%23ff0000&iconBackgroundOpacity=71&progressBarColor=%23ff0000&controlsStyle=default&controlsPosition=bottom&controlsColor=%23ffffff&controlsBackground=gradient&hoverEffect=fade&thumbnailUrl=&endThumbnailUrl=&autoPlay=false&loop=false&liveSimulatorEnabled=false&liveSimulatorViewersMin=10&liveSimulatorViewersMax=50&liveSimulatorGrowthRate=moderate&domainLockEnabled=false&domainLockDomains=&showComments=false&ctas=%5B%5D">
+            </lite-video-player>
           </div>
         </div>
       </section>
@@ -277,7 +292,7 @@ const App: React.FC = () => {
 
             <div className="flex flex-col h-full text-center group mt-8 md:mt-0">
               <div className="glass-card p-2 md:p-4 rounded-[1.5rem] md:rounded-[2.5rem] border-amber-500/20 shadow-xl overflow-hidden mb-6 md:mb-8 group-hover:scale-105 transition duration-500">
-                <img src="https://i.postimg.cc/QMYYDRKj/mockup-devocional-tablet.png" alt="Devocional" className="rounded-lg md:rounded-xl w-full h-auto" />
+                <img src="https://ekfkrwueqwpqakpsrsjt.supabase.co/storage/v1/object/public/imagens%20daniel/devocional%20dios%20espanhol%20capap.jpg" alt="Devocional" className="rounded-lg md:rounded-xl w-full h-auto" />
               </div>
               <ValueBadge />
               <h3 className="text-xl md:text-3xl font-black text-white mb-2 md:mb-4 px-4">Devocional: Terapia con Dios</h3>
@@ -286,7 +301,7 @@ const App: React.FC = () => {
 
             <div className="flex flex-col h-full text-center group mt-8 md:mt-0">
               <div className="glass-card p-2 md:p-4 rounded-[1.5rem] md:rounded-[2.5rem] border-amber-500/20 shadow-xl overflow-hidden mb-6 md:mb-8 group-hover:scale-105 transition duration-500">
-                <img src="https://i.postimg.cc/fRMCjYf7/mockup-bonus.jpg" alt="Pack Bônus" className="rounded-lg md:rounded-xl w-full h-auto" />
+                <img src="https://ekfkrwueqwpqakpsrsjt.supabase.co/storage/v1/object/public/imagens%20daniel/capa%20ebooks%20espanhol%20bonus.jpg" alt="Pack Bônus" className="rounded-lg md:rounded-xl w-full h-auto" />
               </div>
               <ValueBadge />
               <h3 className="text-xl md:text-3xl font-black text-white mb-2 md:mb-4 px-4">Pack de Bonos VIP</h3>
@@ -367,7 +382,7 @@ const App: React.FC = () => {
       {/* Guarantee & FAQ */}
       <section className="py-16 md:py-24 px-4 relative overflow-hidden text-center flex flex-col items-center">
         <ShieldCheck className="w-16 h-16 md:w-24 md:h-24 text-amber-500 mb-6 md:mb-8 drop-shadow-[0_0_20px_rgba(217,119,6,0.4)]" />
-        <h2 className="text-3xl md:text-6xl font-black mb-6 md:mb-8 gold-gradient">7 Días de Garantía</h2>
+        <h2 className="text-3xl md:text-6xl font-black mb-6 md:mb-8 gold-gradient">7 Días de Garantia</h2>
         <p className="text-base md:text-2xl text-slate-200 mb-12 md:mb-20 max-w-3xl leading-relaxed font-medium px-4">
           Garantía Incondicional: Si por cualquier motivo sientes que esta guía no é para ti, solo pide el reembolso dentro de 7 días. Sin preguntas. Sin culpa.
         </p>
